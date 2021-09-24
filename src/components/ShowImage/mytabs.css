@@ -1,0 +1,6 @@
+@media screen and (min-width: 290px) {
+    .upload_file img{
+        max-height: 10px;
+        max-width: 10px;
+    }
+  }

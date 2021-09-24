@@ -1,0 +1,727 @@
+{
+    "themeOneFeatureSection": {
+        "preHeading": "Premium",
+        "preHeadingspan": "Features",
+        "heading": "What Makes sApp Different?",
+        "headingTwo": "Explore Premium Features",
+        "headingThree": "Why Small Business Owner's Loves sApp",
+        "headingFour": "Why choose sApp?",
+        "headingText": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati dignissimos quae quo ad iste ipsum officiis deleniti asperiores sit.",
+        "headingTexttwo": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati.",
+        "featureThumb": "/img/features_thumb.png",
+        "featureData": [
+            {
+              "id": 1,
+              "image": "/img/featured_image_1.png",
+              "title": "Fully functional",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis culpa expedita dignissimos."
+            },
+            {
+              "id": 2,
+              "image": "/img/featured_image_2.png",
+              "title": "Live Chat",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis culpa expedita dignissimos."
+            },
+            {
+              "id": 3,
+              "image": "/img/featured_image_3.png",
+              "title": "Secure Data",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis culpa expedita dignissimos."
+            }
+        ],
+        "featureData_1": [
+            {
+                "id": 1,
+                "image": "/img/featured_image_4.png",
+                "title": "Easy to Customize",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis culpa expedita dignissimos."
+              },
+              {
+                "id": 2,
+                "image": "/img/featured_image_5.png",
+                "title": "Responsive Design",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis culpa expedita dignissimos."
+              },
+              {
+                "id": 3,
+                "image": "/img/featured_image_6.png",
+                "title": "Help Documentation",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis culpa expedita dignissimos."
+              }
+        ],
+        "featureDataTwo": [
+            {
+                "id": 1,
+                "iconClass": "flaticon-tap",
+                "title": "Fully functional",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis culpa expedita dignissimos."
+            },
+            {
+                "id": 2,
+                "iconClass": "flaticon-fingerprint",
+                "title": "Fingerprint Data",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis culpa expedita dignissimos."
+            },
+            {
+                "id": 3,
+                "iconClass": "flaticon-notification",
+                "title": "Tap Notification",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis culpa expedita dignissimos."
+            },
+            {
+                "id": 4,
+                "iconClass": "flaticon-place",
+                "title": "Location Tracking",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis culpa expedita dignissimos."
+            },
+            {
+                "id": 5,
+                "iconClass": "flaticon-settings",
+                "title": "Powerful Settings",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis culpa expedita dignissimos."
+            },
+            {
+                "id": 6,
+                "iconClass": "flaticon-language",
+                "title": "Multiple Language",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis culpa expedita dignissimos."
+            }
+        ]
+    },
+    "themeOneServiceSection": {
+        "heading": "Make your Device Manage Everything For you",
+        "headingTwo": "Share your photos with friends easily",
+        "headingThree": "Smart and secure mobile banking",
+        "headingFour": "More productivity with less effort",
+        "headingFive": "Organize all your media content easily",
+        "headingSix": "Work faster with powerful filters",
+        "headingSeven": "Stay connected with all of your friends",
+        "buttonText": "Learn More",
+        "thumbOne": "/img/features_thumb.png",
+        "thumbTwo": "/img/service_thumb_2.png",
+        "thumbThree": "/img/welcome_mockup_2.png",
+        "thumbFour": "/img/discover_thumb.png",
+        "thumbFive": "/img/service_thumb_1.png",
+        "thumbSix": "/img/discover_thumb_2.png",
+        "serviceData": [
+            {
+                "id": 1,
+                "iconClass": "fab fa-buffer",
+                "text": "Fully layered dolor sit amet, consectetur adipisicing elit. Facere, nobis, id expedita dolores officiis laboriosam."
+            },
+            {
+                "id": 2,
+                "iconClass": "fas fa-brush",
+                "text": "Customizable design dolor sit amet, consectetur adipisicing elit. Facere, nobis, id expedita dolores officiis laboriosam."
+            },
+            {
+                "id": 3,
+                "iconClass": "fas fa-burn",
+                "text": "Drop ipsum dolor sit amet, consectetur adipisicing elit. Facere, nobis, id expedita dolores officiis laboriosam."
+            },
+            {
+                "id": 4,
+                "iconClass": "fas fa-cart-arrow-down",
+                "text": "Marketing chart dolor sit amet, consectetur adipisicing elit. Facere, nobis, id expedita dolores officiis laboriosam."
+            }
+        ]
+    },
+    "themeOneDiscoverSection": {
+        "heading": "Easily communicate with clients using sApp.",
+        "headingTwo": "Work faster with powerful tools.",
+        "headingThree": "More productivity with less effort",
+        "headingText": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique dolor ut iusto vitae autem neque eum ipsam, impedit asperiores vel cumque laborum dicta repellendus inventore voluptatibus et explicabo nobis unde.",
+        "thumbOne": "/img/discover_thumb.png",
+        "thumbTwo": "/img/discover_thumb_3.png",
+        "discoverData": [
+            {
+                "id": 1,
+                "iconClass": "fas fa-check",
+                "text": "Combined with a handful of model sentence structures looks reasonable."
+            },
+            {
+                "id": 2,
+                "iconClass": "fas fa-check",
+                "text": "Contrary to popular belief, Lorem Ipsum is not simply random text."
+            },
+            {
+                "id": 3,
+                "iconClass": "fas fa-check",
+                "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium."
+            },
+            {
+                "id": 4,
+                "iconClass": "fas fa-check",
+                "text": "All the Lorem Ipsum generators on the Internet tend to repeat necessary."
+            }
+        ],
+        "discoverIcon": [
+            {
+                "id": 1,
+                "iconClass": "fas fa-bell"
+            },
+            {
+                "id": 2,
+                "iconClass": "fas fa-envelope-open"
+            },
+            {
+                "id": 3,
+                "iconClass": "fas fa-video"
+            }
+        ]
+    },
+    "themeOneWorkSection": {
+        "heading": "How sApp works?",
+        "headingText": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati dignissimos quae quo ad iste ipsum officiis deleniti asperiores sit.",
+        "workData": [
+            {
+                "id": 1,
+                "image": "/img/work_thumb_1.png",
+                "title": "Install the App",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius saepe, voluptates quis enim incidunt obcaecati?"
+            },
+            {
+                "id": 2,
+                "image": "/img/work_thumb_2.png",
+                "title": "Setup your profile",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius saepe, voluptates quis enim incidunt obcaecati?"
+            },
+            {
+                "id": 3,
+                "image": "/img/work_thumb_3.png",
+                "title": "Enjoy the features!",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius saepe, voluptates quis enim incidunt obcaecati?"
+            }
+        ]
+    },
+    "themeOnePricingSection": {
+        "iconClass": "far fa-lightbulb text-primary mr-1",
+        "preHeading": "Flexible",
+        "preHeadingspan": "Pricing",
+        "heading": "Unlock Full Power Of sApp",
+        "headingText": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati dignissimos quae quo ad iste ipsum officiis deleniti asperiores sit.",
+        "headingTexttwo": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati.",
+        "text": "Not sure what to choose?",
+        "textLink": "Contact Us",
+        "pricingData": [
+            {
+                "id": 1,
+                "planImage": "/img/price_basic.png",
+                "planTitle": "Basic",
+                "priceSub": "$",
+                "planPrice": "49",
+                "planBtn": "Sign Up",
+                "li_1": "5GB Linux Web Space",
+                "li_2": "5 MySQL Databases",
+                "li_3": "24/7 Tech Support",
+                "li_4": "Daily Backups"
+            },
+            {
+                "id": 2,
+                "planImage": "/img/price_premium.png",
+                "planTitle": "Pro",
+                "priceSub": "$",
+                "planPrice": "149",
+                "planBtn": "Sign Up",
+                "li_1": "10GB Linux Web Space",
+                "li_2": "50 MySQL Databases",
+                "li_3": "Unlimited Email",
+                "li_4": "Daily Backups"
+            }
+        ]
+    },
+    "themeOneFaqSection": {
+        "heading": "Frequently asked questions",
+        "headingTwo": "Have questions? Look here",
+        "headingText": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati dignissimos quae quo ad iste ipsum officiis deleniti asperiores sit.",
+        "headingTexttwo": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati.",
+        "faqText": "Haven't find suitable answer?",
+        "faqTextLink": "Tell us what you need.",
+        "faqData": [
+            {
+                "id": 1,
+                "title": "How to install sApp?",
+                "content": "The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text."
+            },
+            {
+                "id": 2,
+                "title": "Can I get support from the Author?",
+                "content": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source."
+            },
+            {
+                "id": 3,
+                "title": "Do you have a free trail?",
+                "content": "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+            }
+        ],
+        "faqDataTwo": [
+            {
+                "id": 1,
+                "title": "How can I edit my personal information?",
+                "content": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+            },
+            {
+                "id": 2,
+                "title": "Contact form isn't working?",
+                "content": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."
+            },
+            {
+                "id": 3,
+                "title": "Contact form isn't working?",
+                "content": "The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text."
+            }
+        ],
+        "faqDataThree": [
+            {
+                "id": 1,
+                "title": "How to install sApp?",
+                "content": "The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text."
+            },
+            {
+                "id": 2,
+                "title": "Can I get support from the Author?",
+                "content": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source."
+            },
+            {
+                "id": 3,
+                "title": "Do you have a free trail?",
+                "content": "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+            },
+            {
+                "id": 4,
+                "title": "How can I edit my personal information?",
+                "content": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+            },
+            {
+                "id": 5,
+                "title": "Contact form isn't working?",
+                "content": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."
+            }
+        ]
+    },
+    "themeOneTeamSection": {
+        "heading": "Our Team Experts",
+        "headingText": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati dignissimos quae quo ad iste ipsum officiis deleniti asperiores sit.",
+        "headingTexttwo": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati.",
+        "teamData": [
+            {
+                "id": 1,
+                "image": "/img/avatar-1.png",
+                "title": "Junaid Hasan",
+                "teamPost": "Founder & CEO"
+            },
+            {
+                "id": 2,
+                "image": "/img/avatar-2.png",
+                "title": "Jassica William",
+                "teamPost": "Co-Founder"
+            },
+            {
+                "id": 3,
+                "image": "/img/avatar-3.png",
+                "title": "Md. Arham",
+                "teamPost": "Web Designer"
+            },
+            {
+                "id": 4,
+                "image": "/img/avatar-4.png",
+                "title": "Yasmin Akter",
+                "teamPost": "Graphic Designer"
+            }
+        ],
+        "teamIcons": [
+            {
+                "id": 1,
+                "iconClass": "fab fa-facebook-f"
+            },
+            {
+                "id": 2,
+                "iconClass": "fab fa-twitter"
+            },
+            {
+                "id": 3,
+                "iconClass": "fab fa-google-plus-g"
+            },
+            {
+                "id": 4,
+                "iconClass": "fab fa-linkedin-in"
+            }
+        ]
+    },
+    "themeOneContactSection": {
+        "heading": "Stay Tuned",
+        "headingText": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati dignissimos quae quo ad iste ipsum officiis deleniti asperiores sit.",
+        "headingTexttwo": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati.",
+        "content": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.",
+        "iconList": [
+            {
+                "id": 1,
+                "iconClass": "fas fa-home",
+                "text": "Vestibulum nulla libero, convallis, tincidunt suscipit diam, DC 2002"
+            },
+            {
+                "id": 2,
+                "iconClass": "fas fa-phone-alt",
+                "text": "+1 230 456 789-012 345 6789"
+            },
+            {
+                "id": 3,
+                "iconClass": "fas fa-envelope",
+                "text": "exampledomain@domain.com"
+            }
+        ]
+    },
+    "themeOneFooterSection": {
+        "image": "/img/logo.png",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis non, fugit totam vel laboriosam vitae.",
+        "linkText_1": "Useful Links",
+        "linkText_2": "Product Help",
+        "linkText_3": "Download",
+        "iconList": [
+            {
+                "id": 1,
+                "link": "facebook",
+                "iconClass": "fab fa-facebook-f"
+            },
+            {
+                "id": 2,
+                "link": "twitter",
+                "iconClass": "fab fa-twitter"
+            },
+            {
+                "id": 3,
+                "link": "google-plus",
+                "iconClass": "fab fa-google-plus-g"
+            },
+            {
+                "id": 4,
+                "link": "vine",
+                "iconClass": "fab fa-vine"
+            }
+        ],
+        "footerList_1": [
+            {
+                "id": 1,
+                "text": "Home"
+            },
+            {
+                "id": 2,
+                "text": "About Us"
+            },
+            {
+                "id": 3,
+                "text": "Services"
+            },
+            {
+                "id": 4,
+                "text": "Blog"
+            },
+            {
+                "id": 5,
+                "text": "Contact"
+            }
+        ],
+        "footerList_2": [
+            {
+                "id": 1,
+                "text": "FAQ"
+            },
+            {
+                "id": 2,
+                "text": "Privacy Policy"
+            },
+            {
+                "id": 3,
+                "text": "Support"
+            },
+            {
+                "id": 4,
+                "text": "Terms & Conditions"
+            },
+            {
+                "id": 5,
+                "text": "Contact"
+            }
+        ],
+        "footerList_3": [
+            {
+                "id": 1,
+                "image": "/img/google-play-black.png"
+            },
+            {
+                "id": 2,
+                "image": "/img/app-store-black.png"
+            }
+        ],
+        "footerList_4": [
+            {
+                "id": 1,
+                "text": "Affiliate program"
+            },
+            {
+                "id": 2,
+                "text": "Terms & Conditions"
+            },
+            {
+                "id": 3,
+                "text": "Privacy Policy"
+            },
+            {
+                "id": 4,
+                "text": "Refund Policy"
+            }
+        ]
+    },
+    "themeOneBlogSection": {
+        "blogData": [
+            {
+                "id": 1,
+                "image": "/img/blog-1.jpg",
+                "author": "Anna Sword",
+                "date": "Feb 05, 2019",
+                "title": "How to grow up your business",
+                "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.",
+                "btnText": "Read More"
+            },
+            {
+                "id": 2,
+                "image": "/img/blog-2.jpg",
+                "author": "Jassica William",
+                "date": "Feb 05, 2019",
+                "title": "Planing to manage your clients?",
+                "content": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor.",
+                "btnText": "Read More"
+            },
+            {
+                "id": 3,
+                "image": "/img/blog-3.jpg",
+                "author": "John Doe",
+                "date": "Mar 05, 2019",
+                "title": "Make your successful business with sApp",
+                "content": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage.",
+                "btnText": "Read More"
+            },
+            {
+                "id": 4,
+                "image": "/img/blog-4.jpg",
+                "author": "Anna Sword",
+                "date": "Aug 05, 2019",
+                "title": "How to get more clients?",
+                "content": "Need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.",
+                "btnText": "Read More"
+            },
+            {
+                "id": 5,
+                "image": "/img/blog-5.jpg",
+                "author": "Anna Sword",
+                "date": "Feb 05, 2019",
+                "title": "Grow up your business successfully",
+                "content": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor.",
+                "btnText": "Read More"
+            },
+            {
+                "id": 6,
+                "image": "/img/blog-6.jpg",
+                "author": "Junaid Hasan",
+                "date": "Jan 12, 2020",
+                "title": "Meet the business magnet of the year",
+                "content": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly",
+                "btnText": "Read More"
+            },
+            {
+                "id": 7,
+                "image": "/img/blog-7.jpg",
+                "author": "Anna Sword",
+                "date": "Feb 05, 2019",
+                "title": "How to grow up your business",
+                "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.",
+                "btnText": "Read More"
+            },
+            {
+                "id": 8,
+                "image": "/img/blog-8.jpg",
+                "author": "Anna Sword",
+                "date": "Sep 24, 2019",
+                "title": "Planing to manage your clients?",
+                "content": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor.",
+                "btnText": "Read More"
+            },
+            {
+                "id": 9,
+                "image": "/img/blog-9.jpg",
+                "author": "Anna Sword",
+                "date": "Feb 05, 2020",
+                "title": "Make your successful business with sApp",
+                "content": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly.",
+                "btnText": "Read More"
+            }
+        ]
+    },
+    "themeOneSidebarData": {
+        "widgetTitle_1": "Categories",
+        "widgetTitle_2": "Popular Post",
+        "widgetTitle_3": "Popular Tags",
+        "widgetData_1": [
+            {
+                "id": 1,
+                "text": "Web Design",
+                "content": "(14)"
+            },
+            {
+                "id": 2,
+                "text": "App Landing",
+                "content": "(32)"
+            },
+            {
+                "id": 3,
+                "text": "Wordpress",
+                "content": "(27)"
+            },
+            {
+                "id": 4,
+                "text": "UI Design",
+                "content": "(18)"
+            },
+            {
+                "id": 5,
+                "text": "Bootstrap",
+                "content": "(15)"
+            },
+            {
+                "id": 6,
+                "text": "Web Template",
+                "content": "(29)"
+            }
+        ],
+        "widgetData_2": [
+            {
+                "id": 1,
+                "image": "/img/avatar-1.png",
+                "date": "05 Feb, 2018",
+                "title": "Promote Your Apps With sApp"
+            },
+            {
+                "id": 2,
+                "image": "/img/avatar-2.png",
+                "date": "12 Feb, 2020",
+                "title": "Sell Your Product Like Never Before"
+            },
+            {
+                "id": 3,
+                "image": "/img/avatar-3.png",
+                "date": "13 Jul, 2019",
+                "title": "Built For Passionate People"
+            },
+            {
+                "id": 4,
+                "image": "/img/avatar-4.png",
+                "date": "03 Oct, 2019",
+                "title": "Get Unlimited Offers & Plans"
+            }
+        ],
+        "widgetData_3": [
+            {
+                "id": 1,
+                "text": "sApp"
+            },
+            {
+                "id": 2,
+                "text": "Bootstrap"
+            },
+            {
+                "id": 3,
+                "text": "IOS"
+            },
+            {
+                "id": 4,
+                "text": "Android"
+            },
+            {
+                "id": 5,
+                "text": "Landing Page"
+            },
+            {
+                "id": 6,
+                "text": "Business"
+            },
+            {
+                "id": 7,
+                "text": "Fashion"
+            },
+            {
+                "id": 8,
+                "text": "Media"
+            },
+            {
+                "id": 9,
+                "text": "Lifestyle"
+            },
+            {
+                "id": 10,
+                "text": "Wordpress"
+            },
+            {
+                "id": 11,
+                "text": "Web Design"
+            },
+            {
+                "id": 12,
+                "text": "Mobile App"
+            }
+        ]
+    },
+    "themeOneBlogDetails": {
+        "title": "How to grow up your business with sApp",
+        "image": "/img/blog-2.jpg",
+        "author": "Anna Swford",
+        "date": "05 Feb, 2020",
+        "comments": "2 Comments",
+        "text_1": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.",
+        "text_2": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.",
+        "text_3": "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish.",
+        "text_4": "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment.",
+        "quoteText_1": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing.",
+        "quoteText_2": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.",
+        "adminImage": "/img/avatar-1.png",
+        "admin": "Anna Swford",
+        "adminText": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock Virginia.",
+        "commentsTitle": "Recent Comments",
+        "commentsPost": "Post your Comments",
+        "postText": "Send Message",
+        "iconList": [
+            {
+                "id": 1,
+                "link": "bg-white facebook",
+                "iconClass": "fab fa-facebook-f"
+            },
+            {
+                "id": 2,
+                "link": "bg-white twitter",
+                "iconClass": "fab fa-twitter"
+            },
+            {
+                "id": 3,
+                "link": "bg-white google-plus",
+                "iconClass": "fab fa-google-plus-g"
+            }
+        ],
+        "commentsData": [
+            {
+                "id": 1,
+                "commentsImage": "/img/avatar-2.png",
+                "commentsAuthor": "Junaid Hasan",
+                "replyText": "Reply",
+                "commentsText_1": "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.",
+                "commentsText_2": "The standard chunk of Lorem Ipsum used since the 1500s."
+            },
+            {
+                "id": 2,
+                "commentsImage": "/img/avatar-3.png",
+                "commentsAuthor": "Jassica William",
+                "replyText": "Reply",
+                "commentsText_1": "All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.",
+                "commentsText_2": "All the Lorem Ipsum generators on the Internet tend to repeat."
+            }
+        ]
+    }
+}
