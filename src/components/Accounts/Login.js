@@ -23,6 +23,7 @@ class Login extends Component {
             initData: [],
             email: null,
             password: null,
+            name: null,
             loggedIn: false
         }
 
@@ -44,7 +45,7 @@ class Login extends Component {
         e.preventDefault();
 
         //sending uploaded foreground image to flask 
-        axios.post("http://localhost:5000/api/login", {email:this.state.email, password:this.state.password})
+        axios.post("http://localhost:5000/api/login", {username:this.state.name, password:this.state.password})
         .then((response) => { //setting state if post was successful
             console.log(response.data);
         });
@@ -91,7 +92,7 @@ class Login extends Component {
                                                             <div className="input-group-prepend">
                                                                 <span className="input-group-text"><i className="fas fa-envelope-open" /></span>
                                                             </div>
-                                                            <input type="email" className="form-control" value={this.state.name} name="email" onChange={this.handleChange} placeholder="Email" required="required" />
+                                                            <input type="text" className="form-control" value={this.state.name} name="email" onChange={this.handleChange} placeholder="Name" required="required" />
                                                         </div>
                                                     </div>
                                                     <div className="form-group">
@@ -99,7 +100,7 @@ class Login extends Component {
                                                             <div className="input-group-prepend">
                                                                 <span className="input-group-text"><i className="fas fa-unlock-alt" /></span>
                                                             </div>
-                                                            <input type="password" className="form-control" name="password" value={this.state.name} placeholder="Password" onChange={this.handleChange} required="required" />
+                                                            <input type="password" className="form-control" name="password" value={this.state.password} placeholder="Password" onChange={this.handleChange} required="required" />
                                                             <span className="d-block pt-2 mt-4">{this.state.initData.forgotText} <a href="/forgot">{this.state.initData.btnText_3}</a></span>
                                                         </div>
                                                     </div>

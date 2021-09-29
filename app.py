@@ -13,6 +13,7 @@ from pathlib import Path
 app = Flask(__name__, static_url_path='', static_folder='./src')
 CORS(app) #comment this on deployment
 api = Api(app)
+username = ""
 
 db = flask_sqlalchemy.SQLAlchemy()
 guard = flask_praetorian.Praetorian()
@@ -67,7 +68,7 @@ db.init_app(app)
 # Initializes CORS so that the api_tool can talk to the example app
 cors.init_app(app)
 
-# Add users for the example
+# Add users for the example (not neccesary for deploy - to delete later)
 with app.app_context():
     db.create_all()
     if db.session.query(User).filter_by(email='ivan@gmail.com').count() < 1:
@@ -94,7 +95,7 @@ def post():
     #files = request.files
     file = request.files['file']
     print(file)
-    file.save(os.path.join(dir_path + "/user_data/foreground", file.filename))
+    file.save(os.path.join(dir_path + "/user_data/" + username + "/foreground", file.filename))
     #############################
     #nn to process file
     #############################
@@ -103,13 +104,15 @@ def post():
 
 @app.route("/api/upload/background", methods=['POST'])
 def post2():
-    file = request.files['file2']
+    file = request.files['file']
     print(file)
+    file.save(os.path.join(dir_path + "/user_data/" + username + "/background", file.filename))
     
     return "done uploading background"
 
 @app.route('/api/login', methods=['POST'])
 def login():
+    global username
     """
     Logs a user in by parsing a POST request containing user credentials and
     issuing a JWT token.
@@ -122,10 +125,12 @@ def login():
     password = req.get('password', None)
     user = guard.authenticate(username, password)
     ret = {'access_token': guard.encode_jwt_token(user)}
+    print(username) #debug
     return ret, 200
 
-@app.route('/api/signup', methods=['POST'])
+@app.route('/api/signup', methods=['POST']) #signup handler
 def signup():
+    global username
     """
     Signups a user in by parsing a POST request
     """
@@ -133,9 +138,9 @@ def signup():
     email = req.get('email', None)
     username = req.get('username', None)
     password = req.get('password', None)
-
+    
     user = User.query.filter_by(email=email).first() # if this returns a user, then the email already exists in database
-
+    #print(user) #debug
     if user: # if a user is found, we want to redirect back to signup page so user can try again
         return "email already exists"
 
@@ -148,12 +153,12 @@ def signup():
 
     Path(dir_path+"/user_data/"+username).mkdir(parents=True, exist_ok=True)
     Path(dir_path+"/user_data/"+username+"/foreground").mkdir(parents=True, exist_ok=True)
-    Path(dir_path+"/user_data/"+username+"/backgorund").mkdir(parents=True, exist_ok=True)
+    Path(dir_path+"/user_data/"+username+"/background").mkdir(parents=True, exist_ok=True)
     Path(dir_path+"/user_data/"+username+"/processed").mkdir(parents=True, exist_ok=True)
 
     return "done"
 
-@app.route('/api/refresh', methods=['POST'])
+@app.route('/api/refresh', methods=['POST']) #not used till now - important for later
 def refresh():
     """
     Refreshes an existing JWT by creating a new one that is a copy of the old

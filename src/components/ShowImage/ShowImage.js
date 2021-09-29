@@ -146,11 +146,11 @@ class ShowImage extends Component {
     console.log(file);
 
     //sending uploaded foreground image to flask 
-    axios.post("http://localhost:5000/api/upload/background", formData)
-    .then((response) => { //setting state if post was successful
-      console.log(response.data);
+    //axios.post("http://localhost:5000/api/upload/background", formData)
+    //.then((response) => { //setting state if post was successful
+      //console.log(response.data);
       
-    });
+   // });
 
   }
 
@@ -220,6 +220,7 @@ class ShowImage extends Component {
                             Upload Video 
                         </button>
                       </div>
+                      <a class="btn btn-outline-primary" style={{top:'570px', left:'950px', position:'absolute'}} href={imagePreviewUrl} download>Click to download</a>
                   </div>
 
                   <Tabs defaultActiveKey="pictures" id="uncontrolled-tab-example" style={{ position: 'absolute', bottom: '200px'}}>
@@ -233,6 +234,7 @@ class ShowImage extends Component {
                           </label>
                           <input id="background-upload" type="file" accept=".jpg,.png" onChange={this._handleBackChange} style={{display:'none', border: '1px solid #ccc'}}/>
                         </div>
+                      
                         <div class="images" style={{marginLeft:'170px'}}>
                         <img class="upload_file" style={{ maxHeight: '130px', padding: '2px', display:'none'}} src={''}/>
                         <img class="upload_file" src={this.state.imgList[this.state.index]} alt=""   onClick={this._changePreview(this.state.imgList[this.state.index])} style={{ maxHeight: '130px', padding: '2px'}}/>

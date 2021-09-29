@@ -51,7 +51,7 @@ class Signup extends Component {
         e.preventDefault();
 
         //sending uploaded foreground image to flask 
-        axios.post("http://localhost:5000/api/signup", {email:this.state.email, password:this.state.password,name:this.state.name})
+        axios.post("http://localhost:5000/api/signup", {email:this.state.email, password:this.state.password,username:this.state.name})
         .then((response) => { //setting state if post was successful
             console.log(response.data);
         });
