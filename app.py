@@ -68,7 +68,7 @@ db.init_app(app)
 # Initializes CORS so that the api_tool can talk to the example app
 cors.init_app(app)
 
-# Add users for the example (not neccesary for deploy - to delete later)
+# Add users for the example
 with app.app_context():
     db.create_all()
     if db.session.query(User).filter_by(email='ivan@gmail.com').count() < 1:
@@ -128,7 +128,7 @@ def login():
     print(username) #debug
     return ret, 200
 
-@app.route('/api/signup', methods=['POST']) #signup handler
+@app.route('/api/signup', methods=['POST'])
 def signup():
     global username
     """
@@ -158,7 +158,7 @@ def signup():
 
     return "done"
 
-@app.route('/api/refresh', methods=['POST']) #not used till now - important for later
+@app.route('/api/refresh', methods=['POST'])
 def refresh():
     """
     Refreshes an existing JWT by creating a new one that is a copy of the old

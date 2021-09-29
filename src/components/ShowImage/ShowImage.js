@@ -180,7 +180,7 @@ class ShowImage extends Component {
     reader.onloadend = () => {
       this.setState({
         file: file,
-        imagePreviewUrl: reader.result
+        imagePreviewUrl: reader.result //the single line to change to change the saved video
       });
     }
 
