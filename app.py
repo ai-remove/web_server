@@ -9,11 +9,15 @@ import flask_sqlalchemy
 import flask_praetorian
 import flask_cors
 from pathlib import Path
+import zlib
+import zipfile
 
 app = Flask(__name__, static_url_path='', static_folder='./src')
 CORS(app) #comment this on deployment
 api = Api(app)
 username = ""
+filename1 = ""
+filename2 = ""
 
 db = flask_sqlalchemy.SQLAlchemy()
 guard = flask_praetorian.Praetorian()
@@ -90,8 +94,18 @@ def get():
       'message': "AI.Remove Api Handler"
       }
 
+@app.route("/api/getuser", methods=['POST'])
+def userfiles():
+    global filename1
+    global filename2
+    return {
+        "filename1":filename1,
+        "filename2":filename2
+    }
+
 @app.route("/api/upload/foreground", methods=['POST'])
 def post():
+    global filename1
     #files = request.files
     file = request.files['file']
     print(file)
@@ -99,16 +113,18 @@ def post():
     #############################
     #nn to process file
     #############################
-    filename = ''
-    return filename
+    filename1 = dir_path + "/user_data/" + "pam2" + "/processed/processed_mask/pic1.jpeg"
+    return filename1
 
 @app.route("/api/upload/background", methods=['POST'])
 def post2():
+    global filename2
     file = request.files['file']
     print(file)
     file.save(os.path.join(dir_path + "/user_data/" + username + "/background", file.filename))
     
-    return "done uploading background"
+    filename2 = dir_path + "/user_data/" + "pam2" + "/processed/processed_frame/pic2.png"
+    return filename2
 
 @app.route('/api/login', methods=['POST'])
 def login():

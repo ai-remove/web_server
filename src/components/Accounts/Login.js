@@ -92,7 +92,7 @@ class Login extends Component {
                                                             <div className="input-group-prepend">
                                                                 <span className="input-group-text"><i className="fas fa-envelope-open" /></span>
                                                             </div>
-                                                            <input type="text" className="form-control" value={this.state.name} name="email" onChange={this.handleChange} placeholder="Name" required="required" />
+                                                            <input type="text" className="form-control" value={this.state.name} name="name" onChange={this.handleChange} placeholder="Name" required="required" />
                                                         </div>
                                                     </div>
                                                     <div className="form-group">

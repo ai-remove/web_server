@@ -72,6 +72,8 @@ class ShowImage extends Component {
     const video8 = require("./videos/vid8.gif");
 
     this.state = {
+      filename1: '',
+      filename2: '',
       file: '',
       imagePreviewUrl: '',
       backPreviewUrl:'',
@@ -89,6 +91,7 @@ class ShowImage extends Component {
 
     this.onClickForward = this.onClickForward.bind(this)
     this.onClickBack = this.onClickBack.bind(this)
+    this._getFileToDownload = this._getFileToDownload(this)
   }
   
   onClickForward(){
@@ -115,6 +118,18 @@ class ShowImage extends Component {
         index: this.state.index -1
       })
     }
+  }
+
+  _getFileToDownload(){
+    //
+  }
+
+  _downloadButton = () => {
+    axios.post("http://localhost:5000/api/getuser")
+        .then(function(response){
+            console.log(response.data);
+        })
+    document.getElementById('downloadButton').click();
   }
 
   _handleBackChange(e) {
@@ -205,6 +220,7 @@ class ShowImage extends Component {
     if (backPreviewUrl) {
       $backPreview = (<img src={backPreviewUrl} style={{ maxHeight: '450px', maxWidth: '450px', position:'absolute', left:'45%', top:'40%'}}/>);
     }
+    
 
     return (
       <div style={{height: '900px'}}>
@@ -220,7 +236,10 @@ class ShowImage extends Component {
                             Upload Video 
                         </button>
                       </div>
-                      <a class="btn btn-outline-primary" style={{top:'570px', left:'950px', position:'absolute'}} href={imagePreviewUrl} download>Click to download</a>
+                      <a id="downloadButton" style={{top:'570px', left:'950px', position:'absolute'}} href={imagePreviewUrl} hidden onChange={this._getFileToDownload} download>Click to download</a>
+                      <button id="maskFileButton" class="btn btn-outline-primary" style={{top:'470px', left:'300px', position:'absolute'}} onClick={this._downloadButton}>
+                            Download file
+                      </button>
                   </div>
 
                   <Tabs defaultActiveKey="pictures" id="uncontrolled-tab-example" style={{ position: 'absolute', bottom: '200px'}}>

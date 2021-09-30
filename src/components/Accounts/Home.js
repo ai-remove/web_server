@@ -1,20 +1,32 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import Header from '../HeaderSection/Header';
 import FooterSection from '../FooterSection/Footer';
 import ReactPlayer from 'react-player';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import axios from 'axios';
 
 class Home extends Component {
     
+    
     render() {
+
+        let name = ''
+
+        axios.get("http://localhost:5000/api/getuser")
+        .then(function(response){
+            console.log(response.data);
+            name = response.data;
+        })
+
+         console.log(name)
 
         return (
             <div style={{height: '900px'}}>
             <Header imageData={"/img/logo-white.png"} />
             <section id="upload-picture" className="section welcome-area bg-overlay overflow-hidden d-flex align-items-center" style={{height: '1300px'}}>
                     <div className="container" style={{height: '1100px', marginTop: '60px', background:'#7121FF'}}>
-                        <h2 style={{color:'white'}}>Welcome back Ivan!</h2>
+                        <h2 style={{color:'white'}}>Welcome back {this.name}!</h2>
                         <br></br>
                         <br></br>
                         <Popup trigger={<a style={{color: 'white', fontSize: '25px', paddingTop: '10px'}}> video_frames.mp4</a>} position="right center" closeOnDocumentClick>
