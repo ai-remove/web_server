@@ -43,7 +43,7 @@ class ShowImage extends Component {
   constructor(props) {
     super(props);
 
-    
+
     const back1 = require("./img/back1.jpg");
     const back2 = require("./img/back2.jpg");
     const back3 = require("./img/back3.jpg");
@@ -76,10 +76,10 @@ class ShowImage extends Component {
       filename2: '',
       file: '',
       imagePreviewUrl: '',
-      backPreviewUrl:'',
+      backPreviewUrl: '',
       fileUploadState: '',
       index: 0,
-      imgList: [back1,back2,back3,back4,back5,back6,back7,back8],
+      imgList: [back1, back2, back3, back4, back5, back6, back7, back8],
       clrList: [color1, color2, color3, color4, color5, color6, color7, color8],
       vidList: [video1, video2, video3, video4, video5, video6, video7, video8]
     };
@@ -93,9 +93,9 @@ class ShowImage extends Component {
     this.onClickBack = this.onClickBack.bind(this)
     this._getFileToDownload = this._getFileToDownload(this)
   }
-  
-  onClickForward(){
-    if (this.state.index + 4 == this.state.imgList.length){
+
+  onClickForward() {
+    if (this.state.index + 4 == this.state.imgList.length) {
       this.setState({
         index: 0
       })
@@ -107,46 +107,46 @@ class ShowImage extends Component {
     }
   }
 
-  onClickBack(){
-    if (this.state.index - 1 == -1){
+  onClickBack() {
+    if (this.state.index - 1 == -1) {
       this.setState({
         index: this.state.imgList.length - 1
       })
     }
     else {
       this.setState({
-        index: this.state.index -1
+        index: this.state.index - 1
       })
     }
   }
 
-  _getFileToDownload(){
+  _getFileToDownload() {
     //
   }
 
   _downloadButton = () => {
     axios.post("http://localhost:5000/api/getuser")
-        .then(function(response){
-            console.log(response.data);
-        })
+      .then(function (response) {
+        console.log(response.data);
+      })
     document.getElementById('downloadButton').click();
   }
 
   _handleBackChange(e) {
-      //this.backstate.file = URL.createObjectURL(event.target.files[0])
-      e.preventDefault();
+    //this.backstate.file = URL.createObjectURL(event.target.files[0])
+    e.preventDefault();
 
-      let file = e.target.files[0];
-      this.setState({
-        backPreviewUrl: file
-      })
-      const formData = new FormData(); //making a form to send the file
-      formData.append("file", file);
+    let file = e.target.files[0];
+    this.setState({
+      backPreviewUrl: file
+    })
+    const formData = new FormData(); //making a form to send the file
+    formData.append("file", file);
 
-      console.log(file);
+    console.log(file);
 
-      //sending uploaded foreground image to flask 
-      axios.post("http://localhost:5000/api/upload/background", formData)
+    //sending uploaded foreground image to flask 
+    axios.post("http://localhost:5000/api/upload/background", formData)
       .then((response) => { //setting state if post was successful
         console.log(response.data);
       });
@@ -163,9 +163,9 @@ class ShowImage extends Component {
     //sending uploaded foreground image to flask 
     //axios.post("http://localhost:5000/api/upload/background", formData)
     //.then((response) => { //setting state if post was successful
-      //console.log(response.data);
-      
-   // });
+    //console.log(response.data);
+
+    // });
 
   }
 
@@ -187,10 +187,10 @@ class ShowImage extends Component {
 
     //sending uploaded foreground image to flask 
     axios.post("http://localhost:5000/api/upload/foreground", formData)
-    .then((response) => { //setting state if post was successful
-      console.log(response.data);
-    });
-    
+      .then((response) => { //setting state if post was successful
+        console.log(response.data);
+      });
+
     //loading preview of image
     reader.onloadend = () => {
       this.setState({
@@ -203,114 +203,114 @@ class ShowImage extends Component {
   }
 
   //_useEffect = () => {
-    // Update the document title using the browser API
-    //this._fileUploadButton();
+  // Update the document title using the browser API
+  //this._fileUploadButton();
   //}
   //<img src={this.state.imgList[1]} style={{float:'left', position:'absolute', backgroundColor:'#000', width:'1000px', height:'600px'}}></img>
 
   render() {
-    
-    let {imagePreviewUrl} = this.state;
-    let {backPreviewUrl} = this.state;
+
+    let { imagePreviewUrl } = this.state;
+    let { backPreviewUrl } = this.state;
     let $imagePreview = null;
     let $backPreview = null;
     if (imagePreviewUrl) {
-      $imagePreview = (<img src={imagePreviewUrl} style={{ maxHeight: '450px', maxWidth: '450px', position:'absolute', left:'45%', top:'40%'}}/>);
+      $imagePreview = (<img src={imagePreviewUrl} style={{ maxHeight: '450px', maxWidth: '450px', position: 'absolute', left: '45%', top: '40%' }} />);
     }
     if (backPreviewUrl) {
-      $backPreview = (<img src={backPreviewUrl} style={{ maxHeight: '450px', maxWidth: '450px', position:'absolute', left:'45%', top:'40%'}}/>);
+      $backPreview = (<img src={backPreviewUrl} style={{ maxHeight: '450px', maxWidth: '450px', position: 'absolute', left: '45%', top: '40%' }} />);
     }
-    
+
 
     return (
-      <div style={{height: '900px'}}>
+      <div style={{ height: '900px' }}>
         <Header imageData={"/img/logo-white.png"} />
-        <section id="upload-picture" className="section welcome-area bg-overlay overflow-hidden d-flex align-items-center" style={{height: '850px'}}>
-                <div className="container" style={{height: '700px', marginTop: '60px', background:'#7121FF'}}>
-                  {$imagePreview}
-                  {$backPreview}
-                  <div className="row justify-content-center">
-                      <div className="col-12 col-sm-10 col-lg-8">
-                        <input id="fileButton" type="file" accept=".mp4" name="file" hidden onChange={this._handleImageChange}/>
-                        <button id="maskFileButton" class="btn btn-outline-primary" style={{top:'470px', left:'300px', position:'absolute'}} onClick={this._fileUploadButton}>
-                            Upload Video 
+        <section id="upload-picture" className="section welcome-area bg-overlay overflow-hidden d-flex align-items-center" style={{ height: '850px' }}>
+          <div className="container" style={{ height: '700px', marginTop: '60px', background: '#7121FF' }}>
+            {$imagePreview}
+            {$backPreview}
+            <div className="row justify-content-center">
+              <div className="col-12 col-sm-10 col-lg-8">
+                <input id="fileButton" type="file" accept=".mp4,.mov,.avi" name="file" hidden onChange={this._handleImageChange} />
+                <button id="maskFileButton" class="btn btn-outline-primary" style={{ top: '470px', left: '300px', position: 'absolute' }} onClick={this._fileUploadButton}>
+                  Upload Video
                         </button>
-                      </div>
-                      <a id="downloadButton" style={{top:'570px', left:'950px', position:'absolute'}} href={imagePreviewUrl} hidden onChange={this._getFileToDownload} download>Click to download</a>
-                      <button id="maskFileButton" class="btn btn-outline-primary" style={{top:'470px', left:'300px', position:'absolute'}} onClick={this._downloadButton}>
-                            Download file
+              </div>
+              <a id="downloadButton" style={{ top: '570px', left: '950px', position: 'absolute' }} href={imagePreviewUrl} hidden onChange={this._getFileToDownload} download>Click to download</a>
+              <button id="maskFileButton" class="btn btn-outline-primary" style={{ top: '470px', left: '300px', position: 'absolute' }} onClick={this._downloadButton}>
+                Download file
                       </button>
-                  </div>
+            </div>
 
-                  <Tabs defaultActiveKey="pictures" id="uncontrolled-tab-example" style={{ position: 'absolute', bottom: '200px'}}>
-                    <Tab class="container-md" class="upload_file" eventKey="pictures" title="Pictures" style={{ position: 'absolute', bottom: '60px'}}>
-                      <div id="Pictures">
-                        <div style={{ position: 'absolute'}}>
-                          <label for="background-upload" class="btn btn-outline-primary" style={{height:'130px', width:'160px', textAlign:'middle'}}>
-                            <br></br>
-                            <br></br>
+            <Tabs defaultActiveKey="pictures" id="uncontrolled-tab-example" style={{ position: 'absolute', bottom: '200px' }}>
+              <Tab class="container-md" class="upload_file" eventKey="pictures" title="Pictures" style={{ position: 'absolute', bottom: '60px' }}>
+                <div id="Pictures">
+                  <div style={{ position: 'absolute' }}>
+                    <label for="background-upload" class="btn btn-outline-primary" style={{ height: '130px', width: '160px', textAlign: 'middle' }}>
+                      <br></br>
+                      <br></br>
                             Upload file
                           </label>
-                          <input id="background-upload" type="file" accept=".jpg,.png" onChange={this._handleBackChange} style={{display:'none', border: '1px solid #ccc'}}/>
-                        </div>
-                      
-                        <div class="images" style={{marginLeft:'170px'}}>
-                        <img class="upload_file" style={{ maxHeight: '130px', padding: '2px', display:'none'}} src={''}/>
-                        <img class="upload_file" src={this.state.imgList[this.state.index]} alt=""   onClick={this._changePreview(this.state.imgList[this.state.index])} style={{ maxHeight: '130px', padding: '2px'}}/>
-                        <img class="upload_file" src={this.state.imgList[this.state.index+1]} alt="" onClick={this._changePreview(this.state.imgList[this.state.index+1])} style={{ maxHeight: '130px', padding: '2px'}}/>
-                        <img class="upload_file" src={this.state.imgList[this.state.index+2]} alt="" onClick={this._changePreview(this.state.imgList[this.state.index+2])} style={{ maxHeight: '130px', padding: '2px'}}/>
-                        <img class="upload_file" src={this.state.imgList[this.state.index+3]} alt="" onClick={this._changePreview(this.state.imgList[this.state.index+3])} style={{ maxHeight: '130px', padding: '2px'}}/>
-                        </div>
-                        <button style={{background:'none', border: 'none', bottom:'7px', left:'990px', position:'absolute'}} onClick={this.onClickBack}><p style={{postion: 'absolute', display: 'inline-block', fontSize:'100px', color:'white'}}>&laquo;</p></button>
-                        <button style={{background:'none', border: 'none', bottom:'54px', left:'990px', position:'absolute'}} onClick={this.onClickForward}><p style={{postion: 'absolute', display: 'inline-block', fontSize:'100px', color:'white'}}>&raquo;</p></button>
-                    </div>
-                    </Tab>
-                    <Tab eventKey="videos" style={{ position: 'absolute', bottom: '60px'}} title="Videos">
-                      <div id="Videos">
-                          <div style={{ position: 'absolute'}}>
-                            <label for="background-upload" class="btn btn-outline-primary" style={{height:'130px', width:'160px', textAlign:'middle'}}>
-                              <br></br>
-                              <br></br>
+                    <input id="background-upload" type="file" onChange={this._handleBackChange} style={{ display: 'none', border: '1px solid #ccc' }} />
+                  </div>
+
+                  <div class="images" style={{ marginLeft: '170px' }}>
+                    <img class="upload_file" style={{ maxHeight: '130px', padding: '2px', display: 'none' }} src={''} />
+                    <img class="upload_file" src={this.state.imgList[this.state.index]} alt="" onClick={this._changePreview(this.state.imgList[this.state.index])} style={{ maxHeight: '130px', padding: '2px' }} />
+                    <img class="upload_file" src={this.state.imgList[this.state.index + 1]} alt="" onClick={this._changePreview(this.state.imgList[this.state.index + 1])} style={{ maxHeight: '130px', padding: '2px' }} />
+                    <img class="upload_file" src={this.state.imgList[this.state.index + 2]} alt="" onClick={this._changePreview(this.state.imgList[this.state.index + 2])} style={{ maxHeight: '130px', padding: '2px' }} />
+                    <img class="upload_file" src={this.state.imgList[this.state.index + 3]} alt="" onClick={this._changePreview(this.state.imgList[this.state.index + 3])} style={{ maxHeight: '130px', padding: '2px' }} />
+                  </div>
+                  <button style={{ background: 'none', border: 'none', bottom: '7px', left: '990px', position: 'absolute' }} onClick={this.onClickBack}><p style={{ postion: 'absolute', display: 'inline-block', fontSize: '100px', color: 'white' }}>&laquo;</p></button>
+                  <button style={{ background: 'none', border: 'none', bottom: '54px', left: '990px', position: 'absolute' }} onClick={this.onClickForward}><p style={{ postion: 'absolute', display: 'inline-block', fontSize: '100px', color: 'white' }}>&raquo;</p></button>
+                </div>
+              </Tab>
+              <Tab eventKey="videos" style={{ position: 'absolute', bottom: '60px' }} title="Videos">
+                <div id="Videos">
+                  <div style={{ position: 'absolute' }}>
+                    <label for="background-upload" class="btn btn-outline-primary" style={{ height: '130px', width: '160px', textAlign: 'middle' }}>
+                      <br></br>
+                      <br></br>
                               Upload file
                             </label>
-                            <input id="background-upload" type="file" accept=".mov,.avi" onChange={this.handleBackChange} style={{display:'none', border: '1px solid #ccc'}}/>
-                          </div>
-                          <div class="images" style={{marginLeft:'170px'}}>
-                          <img class="upload_file" style={{ maxHeight: '130px', padding: '2px', display:'none'}} src={''}/>
-                          <img class="upload_file" src={this.state.vidList[this.state.index]} alt="" onClick={this._changePreview} style={{ maxHeight: '130px', padding: '2px'}}/>
-                          <img class="upload_file" src={this.state.vidList[this.state.index+1]} alt="" onClick={this._changePreview} style={{ maxHeight: '130px', padding: '2px'}}/>
-                          <img class="upload_file" src={this.state.vidList[this.state.index+2]} alt="" onClick={this._changePreview} style={{ maxHeight: '130px', padding: '2px'}}/>
-                          <img class="upload_file" src={this.state.vidList[this.state.index+3]} alt="" onClick={this._changePreview} style={{ maxHeight: '130px', padding: '2px'}}/>
-                          </div>
-                          <button style={{background:'none', border: 'none', bottom:'7px', left:'990px', position:'absolute'}} onClick={this.onClickBack}><p style={{postion: 'absolute', display: 'inline-block', fontSize:'100px', color:'white'}}>&laquo;</p></button>
-                          <button style={{background:'none', border: 'none', bottom:'54px', left:'990px', position:'absolute'}} onClick={this.onClickForward}><p style={{postion: 'absolute', display: 'inline-block', fontSize:'100px', color:'white'}}>&raquo;</p></button>
-                      </div>
-                    </Tab>
-                    <Tab style={{ position: 'absolute', bottom: '60px'}} eventKey="colors" title="Color">
-                      <div id="Colors">
-                            <div style={{ position: 'absolute'}}>
-                              <label for="background-upload" class="btn btn-outline-primary" style={{height:'130px', width:'160px', textAlign:'middle'}}>
-                                <br></br>
-                                <br></br>
+                    <input id="background-upload" type="file" onChange={this.handleBackChange} style={{ display: 'none', border: '1px solid #ccc' }} />
+                  </div>
+                  <div class="images" style={{ marginLeft: '170px' }}>
+                    <img class="upload_file" style={{ maxHeight: '130px', padding: '2px', display: 'none' }} src={''} />
+                    <img class="upload_file" src={this.state.vidList[this.state.index]} alt="" onClick={this._changePreview} style={{ maxHeight: '130px', padding: '2px' }} />
+                    <img class="upload_file" src={this.state.vidList[this.state.index + 1]} alt="" onClick={this._changePreview} style={{ maxHeight: '130px', padding: '2px' }} />
+                    <img class="upload_file" src={this.state.vidList[this.state.index + 2]} alt="" onClick={this._changePreview} style={{ maxHeight: '130px', padding: '2px' }} />
+                    <img class="upload_file" src={this.state.vidList[this.state.index + 3]} alt="" onClick={this._changePreview} style={{ maxHeight: '130px', padding: '2px' }} />
+                  </div>
+                  <button style={{ background: 'none', border: 'none', bottom: '7px', left: '990px', position: 'absolute' }} onClick={this.onClickBack}><p style={{ postion: 'absolute', display: 'inline-block', fontSize: '100px', color: 'white' }}>&laquo;</p></button>
+                  <button style={{ background: 'none', border: 'none', bottom: '54px', left: '990px', position: 'absolute' }} onClick={this.onClickForward}><p style={{ postion: 'absolute', display: 'inline-block', fontSize: '100px', color: 'white' }}>&raquo;</p></button>
+                </div>
+              </Tab>
+              <Tab style={{ position: 'absolute', bottom: '60px' }} eventKey="colors" title="Color">
+                <div id="Colors">
+                  <div style={{ position: 'absolute' }}>
+                    <label for="background-upload" class="btn btn-outline-primary" style={{ height: '130px', width: '160px', textAlign: 'middle' }}>
+                      <br></br>
+                      <br></br>
                                 Upload file
                               </label>
-                              <input id="background-upload" accept=".jpg,.png" type="file" onChange={this.handleBackChange} style={{display:'none', border: '1px solid #ccc'}}/>
-                            </div>
-                            <div class="images" style={{marginLeft:'170px'}}>
-                            <img class="upload_file" style={{ maxHeight: '130px', padding: '2px', display:'none'}} src={''}/>
-                            <img class="upload_file" src={this.state.clrList[this.state.index]} alt="" onClick={this._changePreview} style={{ maxHeight: '130px', padding: '2px'}}/>
-                            <img class="upload_file" src={this.state.clrList[this.state.index+1]} alt="" onClick={this._changePreview} style={{ maxHeight: '130px', padding: '2px'}}/>
-                            <img class="upload_file" src={this.state.clrList[this.state.index+2]} alt="" onClick={this._changePreview} style={{ maxHeight: '130px', padding: '2px'}}/>
-                            <img class="upload_file" src={this.state.clrList[this.state.index+3]} alt="" onClick={this._changePreview} style={{ maxHeight: '130px', padding: '2px'}}/>
-                            </div>
-                            <button style={{background:'none', border: 'none', bottom:'7px', left:'990px', position:'absolute'}} onClick={this.onClickBack}><p style={{postion: 'absolute', display: 'inline-block', fontSize:'100px', color:'white'}}>&laquo;</p></button>
-                            <button style={{background:'none', border: 'none', bottom:'54px', left:'990px', position:'absolute'}} onClick={this.onClickForward}><p style={{postion: 'absolute', display: 'inline-block', fontSize:'100px', color:'white'}}>&raquo;</p></button>
-                        </div>
-                    </Tab>
-                  </Tabs>
+                    <input id="background-upload" type="file" onChange={this.handleBackChange} style={{ display: 'none', border: '1px solid #ccc' }} />
+                  </div>
+                  <div class="images" style={{ marginLeft: '170px' }}>
+                    <img class="upload_file" style={{ maxHeight: '130px', padding: '2px', display: 'none' }} src={''} />
+                    <img class="upload_file" src={this.state.clrList[this.state.index]} alt="" onClick={this._changePreview} style={{ maxHeight: '130px', padding: '2px' }} />
+                    <img class="upload_file" src={this.state.clrList[this.state.index + 1]} alt="" onClick={this._changePreview} style={{ maxHeight: '130px', padding: '2px' }} />
+                    <img class="upload_file" src={this.state.clrList[this.state.index + 2]} alt="" onClick={this._changePreview} style={{ maxHeight: '130px', padding: '2px' }} />
+                    <img class="upload_file" src={this.state.clrList[this.state.index + 3]} alt="" onClick={this._changePreview} style={{ maxHeight: '130px', padding: '2px' }} />
+                  </div>
+                  <button style={{ background: 'none', border: 'none', bottom: '7px', left: '990px', position: 'absolute' }} onClick={this.onClickBack}><p style={{ postion: 'absolute', display: 'inline-block', fontSize: '100px', color: 'white' }}>&laquo;</p></button>
+                  <button style={{ background: 'none', border: 'none', bottom: '54px', left: '990px', position: 'absolute' }} onClick={this.onClickForward}><p style={{ postion: 'absolute', display: 'inline-block', fontSize: '100px', color: 'white' }}>&raquo;</p></button>
                 </div>
+              </Tab>
+            </Tabs>
+          </div>
         </section>
-        <FooterSection/>
+        <FooterSection />
       </div>
     )
   }

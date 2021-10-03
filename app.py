@@ -3,6 +3,7 @@ from flask import Flask, send_from_directory, request, jsonify, send_file
 from flask_restful import Api, Resource, reqparse
 from flask_cors import CORS #comment this on deployment
 import os
+import time
 import importlib
 
 import flask_sqlalchemy
@@ -11,6 +12,9 @@ import flask_cors
 from pathlib import Path
 import zlib
 import zipfile
+
+from U_square_net.model_loader import model_load
+from U_square_net.video_processor import *
 
 app = Flask(__name__, static_url_path='', static_folder='./src')
 CORS(app) #comment this on deployment
@@ -23,7 +27,37 @@ db = flask_sqlalchemy.SQLAlchemy()
 guard = flask_praetorian.Praetorian()
 cors = flask_cors.CORS()
 
+#####   File names   ######
+model_name='u2net'
+# 307200 = 640 * 480; 921600 = 1280 * 720; 2073600 = 1920 * 1080
+out_frame_area = 307200 
+
+##### Directory paths #####
 dir_path = os.path.dirname(os.path.realpath(__file__))
+
+def fg_dir(dir_path, username, fold):
+    fg_dir = os.path.join(dir_path, 'user_data', username, 'foreground', fold)
+    return fg_dir
+
+def bg_dir(dir_path, username, fold):
+    bg_dir = os.path.join(dir_path, 'user_data', username, 'background', fold)
+    return bg_dir
+
+def processed_dir(dir_path, username, fold):
+    processed_dir = os.path.join(dir_path, 'user_data', username, 'processed', fold)
+    return processed_dir
+
+#####   File paths   ###### 
+
+def output_path(dir_path, username):
+    out_video_path = os.path.join(dir_path, 'user_data', username, 'processed', 'output', 'output.mp4')
+    out_gif_path = os.path.join(dir_path, 'user_data', username, 'processed', 'output', 'gif_output.gif')
+    return out_video_path, out_gif_path
+
+model_path = os.path.join(dir_path, 'U_square_net', 'saved_models', model_name+'_human_seg', model_name + '_human_seg.pth')
+
+#####   DL model loading   #####
+net = model_load(model_name, model_path)
 
 # A generic user model that might be used by an app powered by flask-praetorian
 class User(db.Model):
@@ -105,7 +139,7 @@ def userfiles():
 
 @app.route("/api/upload/foreground", methods=['POST'])
 def post():
-    global filename1
+    """global filename1
     #files = request.files
     file = request.files['file']
     print(file)
@@ -114,17 +148,144 @@ def post():
     #nn to process file
     #############################
     filename1 = dir_path + "/user_data/" + "pam2" + "/processed/processed_mask/pic1.jpeg"
-    return filename1
+    return filename1"""
+    
+    global username
+    
+    if username == "":
+        username = 'logout_user'
+       
+    fg_frame_dir                          = fg_dir(dir_path, username, 'frame')
+    fg_mask_dir                           = fg_dir(dir_path, username, 'mask')
+    fg_input_dir                          = fg_dir(dir_path, username, 'input')
+    
+    process_dir                           = processed_dir(dir_path, username, 'output')
+    
+    output_video_path, output_gif_path    = output_path(dir_path, username)
+
+    # Set the number of frames of uploaded video  
+    basic_fg_len = 3
+    
+    # Old folders removing and new folders creating  
+    removed_folders = [fg_frame_dir, fg_mask_dir, fg_input_dir, process_dir]
+    fold_updater(removed_folders)
+
+
+    file = request.files['file']
+    print(file)
+    fg_path = os.path.join(fg_input_dir, file.filename)
+    file.save(fg_path)
+    
+    #####  DL procesing  #####
+    
+    # Convert a video to the video frames and
+    # predict the video frames
+    start_time_fg_video2img = time.time()
+    fg_frame_length, fg_h, fg_w = fg_video2img(fg_path, fg_mask_dir, fg_frame_dir, net, basic_fg_len, out_frame_area)
+    
+    print("-- TIME fg_video2img -- %s seconds ---" % (time.time() - start_time_fg_video2img))
+
+    # Convert the predicted video frames to video with alpha channel
+    bg_status = 'alpha_channel'
+    bg_frame_length=1
+    
+    start_time_mask2video = time.time()
+
+    chess_bg = chessbackground_creater(fg_h, fg_w)
+    mask2video(output_video_path, fg_mask_dir, fg_frame_dir, chess_bg, output_gif_path, bg_status, bg_frame_length, fg_frame_length)
+    print("-- TIME ALPHA mask2video -- %s seconds ---" % (time.time() - start_time_mask2video))
+    
+    filename = ''
+    return filename
+
 
 @app.route("/api/upload/background", methods=['POST'])
 def post2():
-    global filename2
+    """global filename2
     file = request.files['file']
     print(file)
     file.save(os.path.join(dir_path + "/user_data/" + username + "/background", file.filename))
     
     filename2 = dir_path + "/user_data/" + "pam2" + "/processed/processed_frame/pic2.png"
-    return filename2
+    return filename2"""
+    
+    global username
+    
+    if username == "":
+        username = 'logout_user'
+
+    fg_frame_dir                          = fg_dir(dir_path, username, 'frame')
+    fg_mask_dir                           = fg_dir(dir_path, username, 'mask')
+    bg_input_dir                          = bg_dir(dir_path, username, 'input')
+    bg_data_dir                           = bg_dir(dir_path, username, 'data')
+    output_video_path, output_gif_path    = output_path(dir_path, username)
+
+
+    file = request.files['file']
+    print(file)
+    
+    file_name = file.filename
+    bg_input_path = os.path.join(bg_input_dir, file_name)
+    
+    if file_name.lower().endswith(".avi") or \
+            file_name.lower().endswith(".mp4") or \
+            file_name.lower().endswith(".gif"): 
+            
+        bg_status = 'video'
+    elif file_name.lower().endswith(".jpg") or \
+            file_name.lower().endswith(".jpeg") or \
+            file_name.lower().endswith(".png"): 
+            
+        bg_status = 'image'
+    else:
+        pass
+
+    fg_frame_length = len(glob.glob(os.path.join(fg_mask_dir, '*.png')))
+
+    ########## VIDEO ###########
+    if bg_status == 'video':
+        # Old folders removing and new folders creating  
+        removed_folders = [bg_input_dir, bg_data_dir]
+        fold_updater(removed_folders)
+
+        file.save(bg_input_path)
+
+        # Convert a background video to the background video frames 
+        start_time_bg_video2img = time.time()
+        bg_frame_length = bg_video2img(bg_input_path, bg_data_dir, fg_frame_length)
+        print("-- TIME bg_video2img -- %s seconds ---" % (time.time() - start_time_bg_video2img))
+        
+        # Convert the predicted video frames to video with the background video frames
+        start_time_mask2video = time.time()
+        mask2video(output_video_path, fg_mask_dir, fg_frame_dir, bg_data_dir, output_gif_path, bg_status, bg_frame_length, fg_frame_length)
+        print("-- TIME VIDEO BG mask2video -- %s seconds ---" % (time.time() - start_time_mask2video))
+
+        return "done uploading background"
+
+
+    ########## IMAGE ###########
+    if bg_status == 'image':
+        bg_data_path = os.path.join(bg_data_dir, file_name)
+        
+        # Old folders removing and new folders creating  
+        removed_folders = [bg_input_dir, bg_data_dir]
+        fold_updater(removed_folders)
+        
+        file.save(bg_input_path)
+    
+        # Reading of the input background image
+        # and saving the input background image like the data background image
+        bg_data = cv2.imread(bg_input_path)
+        cv2.imwrite(bg_data_path, bg_data)
+        
+        # Convert the predicted video frames to video with the background image
+        start_time_mask2video = time.time()
+        bg_frame_length=1
+        mask2video(output_video_path, fg_mask_dir, fg_frame_dir, bg_data_dir, output_gif_path, bg_status, bg_frame_length, fg_frame_length)
+        print("-- TIME IMG BG mask2video -- %s seconds ---" % (time.time() - start_time_mask2video))
+        
+        return "done uploading background"
+
 
 @app.route('/api/login', methods=['POST'])
 def login():
