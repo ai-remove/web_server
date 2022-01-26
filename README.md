@@ -50,7 +50,8 @@ npm install -l
 #### Backend running (on first powershell tab for Backend Development)
 1. In the directory where app.py is
 For running
-```python3 app.py
+```
+python3 app.py
 ```
 For stopping
 ```
