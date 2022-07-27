@@ -17,7 +17,7 @@ python -m venv env_flask
 ```
 2. Activate the virtual environment
 ```sh
-./env_flask/Scripts/activate
+.\env_flask\Scripts\activate
 ```
 3. Install python packages
 ```sh
