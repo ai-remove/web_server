@@ -60,7 +60,7 @@ npm install
 npm install react-scripts --save
 ```
 4. Put the Deep Learning model "u2net_human_seg.pth" from https://drive.google.com/file/d/1vhXKVb05ubsmoN8vfpItN77JMW4PnymF/view?usp=sharing to the folder "u2net_human_seg" 
-   "web_server/U_square_net/saved_models/u2net_human_segu2net_human_seg.pth"
+   "web_server/U_square_net/saved_models/u2net_human_seg/u2net_human_seg.pth"
 
 
 ## Run the "web_server" project
