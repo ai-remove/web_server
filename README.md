@@ -31,6 +31,7 @@ pip install imageio
 pip install torch 
 pip install torchvision
 pip install -U scikit-image
+pip install matplotlib
 ```
 
 #### Frontend Development (on second powershell tab for Frontend Development)
