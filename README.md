@@ -52,7 +52,7 @@ rm .\node_modules\**
 ```
 For Linux:
 ```sh
-rm -rf node_modules\**
+rm -rf node_modules/**
 ```
 3. Install node_modules and other packages
 ```sh   
